@@ -1,12 +1,19 @@
-<div>
-    <ul>
-        {{#each this.beers}}
-        <a href="/random-beer/{{this.id}}"><img src="{{this.image_url}}" alt="" height="200px">
-        <li><h3>{{this.name}}</h3></li></a>
-        <li><p>{{this.description}}</p></li>
-        <li><p>{{this.tagline}}</p></li>
+<div id="beers-container">
+
+    {{#each this.beers}}
+
+    <a href="/random-beer/{{this.id}}" id="beer-list-link">
+
+        <img src="{{this.image_url}}" alt="" height="200px">
+
+        <h3 id="beer-name">{{this.name}}</h3>
+
+        <p id="beer-tagline">{{this.tagline}}</p>
+
+        <p id="beer-description">{{this.description}}</p>
+
+    </a>
+
     {{/each}}
 
-    </ul>
 </div>
-

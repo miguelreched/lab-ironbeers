@@ -1,22 +1,27 @@
-<div>
-   {{#each this.beers}}
+<div id="random-beer">
+    {{#each this.beers}}
 
-    <img src="{{this.image_url}}" alt="" height="200px">
-    <h3>{{this.name}}</h3>
-    <p>{{this.description}}</p>
-    <h4>{{this.tagline}}</h4>
+    <img src="{{this.image_url}}" alt="" height="200px" id="random-img">
 
-    <ul>
-{{#each this.food_pairing}}
+    <div id="random-info">
+        <h3>{{this.name}}</h3>
+        <h4 id="random-tagline">{{this.tagline}}</h4>
+        <p>{{this.description}}</p>
+        <h4>Food Pairing</h4>
+        
+
+        <ul>
+            {{#each this.food_pairing}}
             <li>{{this}}</li>
-{{/each}}
-    </ul>
+            {{/each}}
+        </ul>
 
-    <p>{{this.brewers_tips}}</p>
+        <h4>Brewers Tips</h4>
+        <p>{{this.brewers_tips}}</p>
 
-    {{/each}}
+        {{/each}}
+    </div>
 
-    
 </div>
 
 {{!-- image_url
