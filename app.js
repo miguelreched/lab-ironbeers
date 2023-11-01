@@ -23,11 +23,51 @@ app.get('/', (req, res) => {
 });
 
 app.get('/beers', (req, res) => {
-  res.render("beers.hbs")
-})
+  // let beerList = beer
+  punkAPI.getBeers()
+  .then((beersFromApi) => {
+    console.log(beersFromApi)
+    res.render("beers.hbs", {
+      beers: beersFromApi
+    })
+  })
+  .catch((error) => {
+   console.log(error)})
+      
+  })
+
+
+
 
 app.get('/random-beer', (req, res) => {
-  res.render("random-beer.hbs")
-})
+
+  punkAPI.getRandom()
+  .then((responseFromApi) => {
+    console.log(responseFromApi)
+    res.render("random-beer.hbs", {
+      beers: responseFromApi
+    })
+  })
+  .catch((error) => {
+   console.log(error)})
+      
+  })
+
+  app.get('/random-beer/:beers', (req, res) => {
+
+    punkAPI.getBeer(req.params.beers)
+
+    .then((beersFromApi) => {
+      console.log(beersFromApi)
+      res.render("random-beer.hbs", {
+        beers: beersFromApi
+      })
+    })
+    .catch((error) => {
+     console.log(error)})
+        
+    })
+  
+
 
 app.listen(3000, () => console.log('🏃‍ on port 3000'));
