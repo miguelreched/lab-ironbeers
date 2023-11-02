@@ -45,7 +45,7 @@ app.get('/random-beer', (req, res) => {
   .then((responseFromApi) => {
     console.log(responseFromApi)
     res.render("random-beer.hbs", {
-      beers: responseFromApi
+      beer: responseFromApi[0]
     })
   })
   .catch((error) => {
@@ -60,7 +60,7 @@ app.get('/random-beer', (req, res) => {
     .then((beersFromApi) => {
       console.log(beersFromApi)
       res.render("random-beer.hbs", {
-        beers: beersFromApi
+        beer: beersFromApi[0]
       })
     })
     .catch((error) => {
